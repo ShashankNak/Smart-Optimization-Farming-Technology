@@ -76,13 +76,9 @@ Ensure you have [conda](https://docs.conda.io/en/latest/miniconda.html) installe
 
 3. **Viewing Results**
 
-    - **Inference**: After uploading the video, the application will run inference to detect vehicles and number plates.
-    - **Tracking**: The application will track each detected object across frames, showing IDs and counts on the website.
-    - **Video Controls**: Use the "Detect", "Play", and "Pause" buttons to control video processing and playback.
-        - **Detect**: Starts the detection process on the uploaded video.
-        - **Play**: Plays the processed video.
-        - **Pause**: Pauses the video playback.
-    - **Statistics**: Current and total counts of detected vehicles and number plates are displayed on the web page.
+    - **Prediction**: After filling the nutritional values, the application will predict crop or fruits or fertilizers and yearly plan
+    - **Detection**: The application will detect the plant leaves that has some disease.
+    - **Statistics**: Model and its performance metrics like accuracy, loss and precisions graphs.
 
 ## Dataset Overview
 
