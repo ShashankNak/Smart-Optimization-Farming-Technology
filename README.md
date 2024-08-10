@@ -1,8 +1,5 @@
 # S.O.F.T
-## S (SMART)
-## O (OPITMIZED)
-## F (FARMING)
-## T (TECHNOLOGY)
+## SMART OPITMIZED FARMING TECHNOLOGY
 
 <video width="640" height="400" controls>
   <source src="" type="video/mp4">
