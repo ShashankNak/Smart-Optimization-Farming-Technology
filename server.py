@@ -28,8 +28,6 @@ def weather():
 def predict(type):
     details = model_predict(request.form,type)
     return jsonify(details)
-    
-
 
 
 if __name__ == '__main__':

@@ -60,7 +60,7 @@
 <body>
     <div class="container">
         <h1>Weather Data Form</h1>
-        <form method="post" action="/predict/weather">
+        <form id="predictionForm">
             <div class="form-group">
                 <label for="N">Nitrogen (N):</label>
                 <input type="number" class="form-control" id="N" name="N" placeholder="Enter nitrogen level" required>
@@ -75,19 +75,19 @@
             </div>
             <div class="form-group">
                 <label for="pH">pH Level:</label>
-                <input type="number" step="0.01" class="form-control" id="pH" name="pH" placeholder="Enter pH level" required>
+                <input type="text" step="0.01" class="form-control" id="pH" name="pH" placeholder="Enter pH level" required>
             </div>
             <div class="form-group">
                 <label for="temp">Temperature (°C):</label>
-                <input type="number" class="form-control" id="temp" name="temp" placeholder="Enter temperature" required>
+                <input type="text" class="form-control" id="temp" name="temp" placeholder="Enter temperature" required>
             </div>
             <div class="form-group">
                 <label for="humidity">Humidity (%):</label>
-                <input type="number" class="form-control" id="humidity" name="humidity" placeholder="Enter humidity" required>
+                <input type="text" class="form-control" id="humidity" name="humidity" placeholder="Enter humidity" required>
             </div>
             <div class="form-group">
                 <label for="rainfall">Rainfall (mm):</label>
-                <input type="number" class="form-control" id="rainfall" name="rainfall" placeholder="Enter rainfall amount" required>
+                <input type="text" class="form-control" id="rainfall" name="rainfall" placeholder="Enter rainfall amount" required>
             </div>
             
             <button type="submit" class="btn btn-custom">Predict</button>
@@ -99,8 +99,32 @@
     </div>
 
     <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#predictionForm').on('submit', function (event) {
+                event.preventDefault(); // Prevent the default form submission
+                console.log("Form submitted!"); // Debugging line
+
+                $.ajax({
+                    url: '/predict/weather',
+                    method: 'POST',
+                    data: $(this).serialize(),
+                    success: function (response) {
+                        const formattedOutput = `Crop: ${response.weather_crop}`;
+                        $('#output').html('<pre>' + formattedOutput + '</pre>'); // Using <pre> to preserve formatting
+                    },
+                    error: function (xhr, status, error) {
+                        console.log("Error:", error); // Debugging line
+                        $('#output').html('<div class="alert alert-danger">Error: ' + error + '</div>');
+                    }
+                });
+            });
+        });
+
+    </script>
 </body>
 </html>
