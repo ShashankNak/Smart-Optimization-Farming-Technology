@@ -1,0 +1,5 @@
+.venv
+__pychache__
+datasets
+notebooks
+py311
