@@ -1,8 +1,7 @@
 # S.O.F.T
 ## SMART OPITMIZED FARMING TECHNOLOGY
 
-https://github.com/user-attachments/assets/2d2b2e82-573a-400d-a956-2ce9febff9bb
-
+https://github.com/user-attachments/assets/98b9eeea-424c-4f64-b216-daf4d1404462
 ## Overview
 
 This repository contains a Flask-based web application for Smart Farming optimization Analysis. The application uses nutritional information from the farm soil lands and create a yearly plan for growing different crops without depleting the soils nutrition in that period optimally. Also, during that period, it allows to detect diseases in the plants using image localization and classification.
