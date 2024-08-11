@@ -2,7 +2,7 @@
 ## SMART OPITMIZED FARMING TECHNOLOGY
 
 <video width="640" height="400" controls>
-  <source src="![scre](https://github.com/user-attachments/assets/2d2b2e82-573a-400d-a956-2ce9febff9bb)" type="video/mp4">
+  <source src="(https://github.com/user-attachments/assets/2d2b2e82-573a-400d-a956-2ce9febff9bb)" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
