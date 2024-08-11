@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +9,12 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
+            background: url('static/img/weather.jpg') no-repeat center center fixed;
             background-color: #f8f9fa;
             font-family: 'Arial', sans-serif;
             padding: 20px;
         }
+
         .container {
             max-width: 600px;
             margin: 50px auto;
@@ -20,17 +23,21 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
         h1 {
             text-align: center;
             margin-bottom: 30px;
         }
+
         .form-group {
             margin-bottom: 20px;
         }
+
         .form-control {
             border-radius: 5px;
             padding: 10px;
         }
+
         .btn-custom {
             display: block;
             width: 100%;
@@ -42,9 +49,11 @@
             border: none;
             transition: background-color 0.3s ease;
         }
+
         .btn-custom:hover {
             background-color: #0056b3;
         }
+
         #output {
             border: 1px solid #007bff;
             max-width: 600px;
@@ -57,6 +66,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Weather Data Form</h1>
@@ -67,7 +77,8 @@
             </div>
             <div class="form-group">
                 <label for="P">Phosphorous (P):</label>
-                <input type="number" class="form-control" id="P" name="P" placeholder="Enter phosphorous level" required>
+                <input type="number" class="form-control" id="P" name="P" placeholder="Enter phosphorous level"
+                    required>
             </div>
             <div class="form-group">
                 <label for="K">Potassium (K):</label>
@@ -75,7 +86,8 @@
             </div>
             <div class="form-group">
                 <label for="pH">pH Level:</label>
-                <input type="text" step="0.01" class="form-control" id="pH" name="pH" placeholder="Enter pH level" required>
+                <input type="text" step="0.01" class="form-control" id="pH" name="pH" placeholder="Enter pH level"
+                    required>
             </div>
             <div class="form-group">
                 <label for="temp">Temperature (°C):</label>
@@ -83,13 +95,15 @@
             </div>
             <div class="form-group">
                 <label for="humidity">Humidity (%):</label>
-                <input type="text" class="form-control" id="humidity" name="humidity" placeholder="Enter humidity" required>
+                <input type="text" class="form-control" id="humidity" name="humidity" placeholder="Enter humidity"
+                    required>
             </div>
             <div class="form-group">
                 <label for="rainfall">Rainfall (mm):</label>
-                <input type="text" class="form-control" id="rainfall" name="rainfall" placeholder="Enter rainfall amount" required>
+                <input type="text" class="form-control" id="rainfall" name="rainfall"
+                    placeholder="Enter rainfall amount" required>
             </div>
-            
+
             <button type="submit" class="btn btn-custom">Predict</button>
         </form>
     </div>
@@ -114,7 +128,16 @@
                     method: 'POST',
                     data: $(this).serialize(),
                     success: function (response) {
-                        const formattedOutput = `Crop: ${response.weather_crop}`;
+                        console.log(response);
+                        var data = response.data[0][0][0]; // Access the first layer of nested arrays
+                        const time = `Time: ${response.time} Months\n`;
+                        var formattedOutput = time;
+
+                        // Iterate over the data to format the output
+                        for (var i = 0; i < data.length; i++) {
+                            formattedOutput += `Crop: ${data[i].weather_crop}\n`;
+                        }
+
                         $('#output').html('<pre>' + formattedOutput + '</pre>'); // Using <pre> to preserve formatting
                     },
                     error: function (xhr, status, error) {
@@ -127,4 +150,5 @@
 
     </script>
 </body>
+
 </html>

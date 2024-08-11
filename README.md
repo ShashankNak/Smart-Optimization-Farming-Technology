@@ -70,7 +70,7 @@ Ensure you have [conda](https://docs.conda.io/en/latest/miniconda.html) installe
         - **Crop Based on Nutrition**: Fill the nutritional values and soil type and click the "Predict" button to get the results of crops and fertilizers. 
         - **Fruits and Vegetables**: Fill the nutritional values and click the "Predict" button to get the results Fruits and vegetables to grow.
         - **Crop Based on Weather Conditions and Nutrients**:  Fill the nutritional values and weather Conditions and click the "Predict" button to get the results Fruits and vegetables to grow.
-    **Leaf Disease Detection** : Click the "Detection" to proceed to detection page.
+    **Plant Disease Detection** : Click the "Detection" to proceed to detection page.
         - **Upload File**: Upload an image or a video to detect the defective plant leaves
     **Model Insights**: Models and its metrics of accuracy, loss and precisions.
 
